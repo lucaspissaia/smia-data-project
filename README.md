@@ -3,7 +3,7 @@
 
 ![Status](https://img.shields.io/badge/Status-Em%20Desenvolvimento-green)
 ![GCP](https://img.shields.io/badge/Google_Cloud-Native-blue)
-![Top2](https://img.shields.io/badge/Award-Top_2_Google_Discovery-gold)
+![Top2](https://img.shields.io/badge/Award-Top_2_FIAP_Discovery-gold)
 
 ---
 
@@ -17,7 +17,7 @@ Atualmente, o Brasil gasta bilhões anualmente com ações reativas contra arbov
 ---
 
 ## 🏗️ Arquitetura da Solução (Data de Ponta a Ponta)
-`![Diagrama de Arquitetura](./docs/arquitetura.png)`
+`![Diagrama de Arquitetura](./docs/Diagrama de Arquitetura.png)`
 
 O projeto foi estruturado em três pilares principais, refletindo o ciclo de vida completo do dado:
 
