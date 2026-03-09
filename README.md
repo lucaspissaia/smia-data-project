@@ -17,7 +17,7 @@ Atualmente, o Brasil gasta bilhões anualmente com ações reativas contra arbov
 ---
 
 ## 🏗️ Arquitetura da Solução (Data de Ponta a Ponta)
-`![Diagrama de Arquitetura](./docs/Diagrama de Arquitetura.png)`
+`![Diagrama de Arquitetura](C:\Users\Lucas\Documents\smia-data-project\docs\Diagrama de Arquitetura.png)`
 
 O projeto foi estruturado em três pilares principais, refletindo o ciclo de vida completo do dado:
 
