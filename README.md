@@ -17,7 +17,7 @@ Atualmente, o Brasil gasta bilhões anualmente com ações reativas contra arbov
 ---
 
 ## 🏗️ Arquitetura da Solução (Data de Ponta a Ponta)
-`![Diagrama de Arquitetura](./docs/Diagrama%20de%20Arquitetura.png)`
+![Diagrama de Arquitetura](./docs/Diagrama%20de%20Arquitetura.png)
 
 O projeto foi estruturado em três pilares principais, refletindo o ciclo de vida completo do dado:
 
@@ -43,19 +43,25 @@ Geração de insights de negócio e modelagem preditiva de surtos.
 ---
 
 ## 🚀 Como reproduzir este projeto
-*(Aqui você colocará um passo a passo simples de como alguém pode rodar o seu código localmente, quais variáveis de ambiente configurar, etc. Deixe para preencher por último)*
+*(Em construção)*
 
-1. Clone o repositório: `git clone https://github.com/seu-usuario/smia-data-project.git`
-2. Configure as credenciais do GCP...
+1. Clone o repositório: git clone https://github.com/lucaspissaia/smia-data-project.git
+2. Credenciais do GCP...
 3. ...
 
 ---
 
-## 👨‍💻 Sobre o Autor
+## 👨‍💻 Sobre o Projeto
 
-**Lucas Pissaia**
-Desenvolvi a base deste projeto como trabalho de conclusão do MBA em Data Science & AI pela FIAP, onde fomos reconhecidos no Top 2 do desafio Discovery (trilha Google). 
+**Érika Tomoko**, **Juliana Neves**, **Lucas Pissaia**, **Matheus Raeski**
 
-Com uma trajetória profissional focada em eficiência, incluindo a experiência atuando como Data & Lean Specialist na PepsiCo em Portugal, meu objetivo é sempre garantir que os dados não sejam apenas números em um banco, mas sim engrenagens que geram resultados concretos e otimização na tomada de decisão de ponta a ponta.
+A base deste projeto foi desenvolvida em grupo, como projeto do desafio Discovery, da trilha do Google Cloud, proposto pela FIAP no ano de 2025.
+Fomos o campeão da trilha do google, terminamos em Top 2 de todos os projetos apresentados no desafio Discovery.
+Agora, após o término do desafio, estou desenvolvendo a parte prática em formato de um MVP (mínimo produto viável), sabendo que posso contar com o auxílio dos meus colegas que ajudaram a conquistar o top 2.
 
-🔗 [Conecte-se comigo no LinkedIn](link-do-seu-linkedin)
+## 👨‍💻 Sobre o autor deste MVP
+
+Com uma trajetória profissional focada em eficiência, incluindo a experiência atuando como Data & Lean Specialist (Data & Analytics engineer com um adicional de projetos de produtividade) na PepsiCo em Portugal, meu objetivo é sempre garantir que os dados não sejam apenas números em um banco, mas sim engrenagens que geram resultados concretos e otimização na tomada de decisão de ponta a ponta.
+
+🔗 [Conecte-se comigo no LinkedIn]
+https://www.linkedin.com/in/lucas-huber-pissaia/
