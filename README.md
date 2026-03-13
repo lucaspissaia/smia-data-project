@@ -1,8 +1,8 @@
 # 🦟 SMIA: Sistema de Mapeamento Inteligente de Arboviroses
-**Transformando a gestão de saúde pública de reativa para preditiva com Google Cloud.**
+**Transformando a gestão de saúde pública de reativa para preditiva.**
 
 ![Status](https://img.shields.io/badge/Status-Em%20Desenvolvimento-green)
-![GCP](https://img.shields.io/badge/Google_Cloud-Native-blue)
+![GCP](https://img.shields.io/badge/AWS-Native-blue)
 ![Top2](https://img.shields.io/badge/Award-Top_2_FIAP_Discovery-gold)
 
 ---
@@ -24,21 +24,21 @@ O projeto foi estruturado em três pilares principais, refletindo o ciclo de vid
 ### 1. ⚙️ Engenharia de Dados (Extração e Data Lake)
 Responsável por orquestrar a coleta diária e automatizada de dados brutos.
 - **Fontes:** API INMET (Clima) e SINAN/DataSUS (Saúde).
-- **Ferramentas:** Python, Google Cloud Functions, Cloud Scheduler.
-- **Destino:** Google Cloud Storage (Camada Bronze).
+- **Ferramentas:** Python, AWS Lambda, EventBridge.
+- **Destino:** Amazon S3 (Camada Bronze).
 - 📁 [Acesse os códigos de Engenharia](./data-engineering/)
 
 ### 2. 📊 Analytics Engineering (Modelagem e DW)
 Transformação dos dados brutos em um modelo dimensional otimizado para análises e machine learning.
-- **Ferramentas:** dbt (Data Build Tool), BigQuery, SQL.
-- **Camadas:** Silver (Limpeza e Padronização) e Gold (Tabelas Fato e Dimensão).
+- **Ferramentas:** Databricks, PySpark, SQL.
+- **Camadas:** Silver (Limpeza e Padronização) e Gold (Tabelas Fato e Dimensão) -> A depender da modelagem de dados e diagrama de entidades.
 - 📁 [Acesse os modelos do dbt](./analytics-engineering/)
 
 ### 3. 🧠 Data Science & Analytics (Predição e Consumo)
 Geração de insights de negócio e modelagem preditiva de surtos.
-- **Ferramentas:** Looker Studio (Dashboard B2G), Python, Vertex AI (Machine Learning).
+- **Ferramentas:** Amazon Quicksight, Python, MLFlow (Machine Learning).
 - 📁 [Acesse os Notebooks de ML](./data-science/)
-- 🔗 [Link para o Dashboard Interativo (Looker)](link-do-looker)
+- 🔗 [Link para o Dashboard Interativo](link-do-dash)
 
 ---
 
@@ -46,7 +46,7 @@ Geração de insights de negócio e modelagem preditiva de surtos.
 *(Em construção)*
 
 1. Clone o repositório: git clone https://github.com/lucaspissaia/smia-data-project.git
-2. Credenciais do GCP...
+2. Credenciais do AWS...
 3. ...
 
 ---
@@ -58,6 +58,8 @@ Geração de insights de negócio e modelagem preditiva de surtos.
 A base deste projeto foi desenvolvida em grupo, como projeto do desafio Discovery, da trilha do Google Cloud, proposto pela FIAP no ano de 2025.
 Fomos o campeão da trilha do google, terminamos em Top 2 de todos os projetos apresentados no desafio Discovery.
 Agora, após o término do desafio, estou desenvolvendo a parte prática em formato de um MVP (mínimo produto viável), sabendo que posso contar com o auxílio dos meus colegas que ajudaram a conquistar o top 2.
+
+Há uma mudança clara de arquitetura. Mesmo o projeto inicialmente tenso sido pensado em volta da arquitetura da google cloud, o mvp vai ser feito todo em aws - databricks, buscando maior desenvolvimento técnico do autor do mvp.
 
 ## 👨‍💻 Sobre o autor deste MVP
 
