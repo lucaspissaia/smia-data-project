@@ -1,3 +1,5 @@
+#extração incremental diária do Open-Meteo a ser configurada envio automático a nuvem
+
 import requests
 import pandas as pd
 import os
