@@ -1,0 +1,7 @@
+'''
+Leitura da tabela fato_dengue_clima criada no dbt para validar os dados.
+'''
+
+
+'''%sql
+SELECT * FROM workspace.default.fato_dengue_clima LIMIT 15;'''

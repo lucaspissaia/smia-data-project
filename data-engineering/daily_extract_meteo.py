@@ -5,9 +5,9 @@ import boto3
 from datetime import datetime, timedelta
 
 # --- CREDENCIAIS AWS ---
-# Em produção (Lambda), não precisamos dessas chaves, mas para rodar local é necessário.
-AWS_ACCESS_KEY = "COLE_SUA_ACCESS_KEY_AQUI"
-AWS_SECRET_KEY = "COLE_SUA_SECRET_KEY_AQUI"
+# Em produção (Lambda), não precisamos dessas chaves
+AWS_ACCESS_KEY = "ACCESS_KEY_AQUI"
+AWS_SECRET_KEY = "SECRET_KEY_AQUI"
 BUCKET_NAME = "smia-datalake-lpissaia"
 
 def upload_to_s3(local_file: str, bucket_name: str, s3_file_name: str):

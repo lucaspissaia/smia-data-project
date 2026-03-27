@@ -7,8 +7,8 @@ import gc
 from botocore.exceptions import NoCredentialsError
 
 # --- CONFIGURAÇÃO AWS ---
-AWS_ACCESS_KEY = "COLE_SUA_ACCESS_KEY_AQUI"
-AWS_SECRET_KEY = "COLE_SUA_SECRET_KEY_AQUI"
+AWS_ACCESS_KEY = "ACCESS_KEY_AQUI"
+AWS_SECRET_KEY = "SECRET_KEY_AQUI"
 BUCKET_NAME = "smia-datalake-lpissaia"
 
 # --- DICIONÁRIO DE COORDENADAS (Pontos Centrais das Zonas de SP) ---

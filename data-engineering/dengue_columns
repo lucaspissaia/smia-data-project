@@ -1,0 +1,42 @@
+import pandas as pd
+import os
+
+def analisar_dengue(ano: int):
+    # Ajuste o caminho se o nome do seu arquivo estiver diferente
+    file_path = f"raw/sinan_dengue_SP_{ano}.parquet"
+    
+    if not os.path.exists(file_path):
+        print(f"❌ Arquivo não encontrado: {file_path}")
+        return
+
+    try:
+        df_dengue = pd.read_parquet(file_path)
+        
+        # 1. Metadados básicos
+        colunas = df_dengue.columns.tolist()
+        print(f"🦟 === AMOSTRA COMPLETA: DENGUE (SINAN - {ano}) ===")
+        print(f"Total de Registros (Linhas): {df_dengue.shape[0]}")
+        print(f"Total de Colunas: {len(colunas)}\n")
+        
+        # 2. Lista todas as colunas
+        print("📋 Lista completa de colunas disponíveis no banco do governo:")
+        print(colunas)
+        print("\n" + "="*80 + "\n")
+        
+        # 3. Força o Pandas a mostrar todas as colunas no terminal
+        pd.set_option('display.max_columns', None)
+        pd.set_option('display.width', 1000) # Evita quebrar a linha muito cedo no terminal
+        
+        print("🔍 Primeiras 5 linhas do arquivo:")
+        print(df_dengue.head(5))
+        
+        # Reseta a configuração para não afetar outros scripts
+        pd.reset_option('display.max_columns')
+        pd.reset_option('display.width')
+
+    except Exception as e:
+        print(f"Erro ao ler os dados de Dengue: {e}")
+
+if __name__ == "__main__":
+    # Chama a função para o ano de 2025 (ou o ano que você quiser auditar)
+    analisar_dengue(2025)

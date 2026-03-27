@@ -7,9 +7,9 @@ from pysus import SINAN
 import boto3
 
 # --- SUAS CREDENCIAIS AWS ---
-AWS_ACCESS_KEY = "COLE_SUA_ACCESS_KEY_AQUI"
-AWS_SECRET_KEY = "COLE_SUA_SECRET_KEY_AQUI"
-BUCKET_NAME = "smia-datalake-lpissaia"
+AWS_ACCESS_KEY = "ACCESS_KEY_AQUI"
+AWS_SECRET_KEY = "SECRET_KEY_AQUI"
+BUCKET_NAME = "smia-datalakelpissaia"
 
 def upload_to_s3(local_file: str, bucket_name: str, s3_file_name: str):
     s3 = boto3.client(

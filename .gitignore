@@ -1,3 +1,11 @@
+# Ignorar arquivos de dados locais pesados
+*.csv
+*.parquet
+*.json
+
+# Ignorar arquivo com chaves e senhas
+credentials.json
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[codz]
