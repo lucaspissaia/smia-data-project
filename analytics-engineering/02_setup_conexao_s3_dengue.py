@@ -20,7 +20,7 @@ AWS_ACCESS_KEY = "ACCESS_KEY_AQUI"
 AWS_SECRET_KEY = "SECRET_KEY_AQUI"
 BUCKET_NAME = "smia-datalakelpissaia"
 
-# Vamos puxar o arquivo de 2025 que você gerou lá no Colab
+# Puxar o arquivo de 2025 gerado no Colab
 CAMINHO_BRONZE_DENGUE = "datasus/sinan_dengue_SP_2025.parquet"
 
 print("🔄 Puxando os dados da Dengue (SINAN 2025) do S3...")
@@ -49,10 +49,10 @@ except Exception as e:
 
 print("🛠️ Refazendo a Faxina Silver: Preservando a riqueza clínica e estatística...")
 
-# 1. Filtro Espacial: Manter APENAS moradores de São Paulo Capital (Isso é obrigatório)
+# 1. Filtro Espacial: Manter APENAS moradores de São Paulo Capital
 df_dengue_sp = df_dengue_spark.filter(F.col("ID_MN_RESI") == "355030")
 
-# 2. As Transformações Mágicas (Adicionando colunas novas sem destruir as antigas)
+# 2. Transformações Mágicas (Adicionando colunas novas sem destruir as antigas)
 df_dengue_silver = df_dengue_sp.withColumn(
     "data_tratada", F.to_date(F.col("DT_NOTIFIC"))
 ).withColumn(
@@ -64,7 +64,7 @@ df_dengue_silver = df_dengue_sp.withColumn(
 
 print(f"📊 Faxina concluída! Linhas retidas na Capital: {df_dengue_silver.count()}")
 print(f"🧬 Total de colunas preservadas para a Inteligência Artificial: {len(df_dengue_silver.columns)}")
-print("✅ Olha a tabela com as novas colunas lá no final:")
+print("✅ A tabela com as novas colunas:")
 
 display(df_dengue_silver)
 
@@ -83,7 +83,7 @@ try:
     )
     df_cnes_spark = spark.createDataFrame(df_cnes_pandas)
     
-    # 2. Preparando a Dimensão (Filtro SP + Regra do CEP com Iniciais Maiúsculas!)
+    # 2. Preparando a Dimensão (Filtro SP + Regra do CEP)
     print("🛠️ Tratando os códigos CNES e mapeando Zonas pelo CEP...")
     df_cnes_dimensao = df_cnes_spark.filter(F.col("CO_IBGE") == "355030").withColumn(
         "ID_UNIDADE_JOIN", F.lpad(F.col("CO_CNES"), 7, '0')
@@ -99,7 +99,7 @@ try:
          .otherwise("Desconhecida")
     ).select("ID_UNIDADE_JOIN", "zona_oficial", "NO_FANTASIA", "NO_BAIRRO")
     
-    # 3. O Casamento (LEFT JOIN)
+    # 3. Junção das tabelas (LEFT JOIN)
     print("🤝 Cruzando a base de Dengue com os Hospitais Reais...")
     df_dengue_enriquecida = df_dengue_silver.join(
         df_cnes_dimensao,
@@ -107,7 +107,7 @@ try:
         "left"
     )
     
-    # 4. Tratamento dos Nulos (Sem o lower, usando a sua lógica direta)
+    # 4. Tratamento dos Nulos (Usando a lógica direta)
     df_dengue_silver_final = df_dengue_enriquecida.withColumn(
         "zona", F.coalesce(F.col("zona_oficial"), F.lit("Zona Nao Identificada"))
     ).withColumn(
@@ -138,7 +138,7 @@ try:
     df_final_pandas.to_parquet(
         caminho_silver_dengue,
         index=False,
-        storage_options={"key": AWS_ACCESS_KEY, "secret": AWS_SECRET_KEY} # Lembre-se de usar a chave nova aqui! 😉
+        storage_options={"key": AWS_ACCESS_KEY, "secret": AWS_SECRET_KEY}
     )
     print(f"✅ SUCESSO! Tabela limpa e salva em: {caminho_silver_dengue}")
 
@@ -152,7 +152,7 @@ except Exception as e:
 
 print("🥇 Iniciando a materialização da Camada Gold...")
 
-# 1. Rodamos a sua exata query SQL e guardamos o resultado numa variável
+# 1. Rodar a query SQL e guardar o resultado numa variável
 query_gold = """
 SELECT 
     d.ID_UNIDADE,
@@ -178,7 +178,7 @@ LEFT JOIN vw_clima c
     AND d.zona = c.zona
 """
 
-# Executa o SQL no motor do Spark
+# Executar o SQL no motor do Spark
 df_gold_spark = spark.sql(query_gold)
 
 print("💾 Extraindo a Tabela Fato para salvar no S3...")

@@ -13,7 +13,7 @@ BUCKET_NAME = "smia-datalakelpissaia"
 
 print("🔄 Trazendo as tabelas Silver do S3 para a memória...")
 
-# 1. Lendo a PASTA INTEIRA de Clima (Todas as Zonas e Anos)
+# 1. Lendo a pasta inteira de Clima (Todas as Zonas e Anos)
 df_clima = pd.read_parquet(
     f"s3://{BUCKET}/silver/clima/",
     storage_options={"key": AWS_ACCESS_KEY, "secret": AWS_SECRET_KEY}
@@ -21,7 +21,7 @@ df_clima = pd.read_parquet(
 # Transforma em PySpark e cria uma "Tabela Virtual" chamada vw_clima
 spark.createDataFrame(df_clima).createOrReplaceTempView("vw_clima")
 
-# 2. Lendo a Dengue de 2025
+# 2. Lendo a Dengue de 2025 -> passar para a pasta inteira quando resolver o problema de 2024
 df_dengue = pd.read_parquet(
     f"s3://{BUCKET}/silver/dengue/dengue_enriquecida_sp_2025.parquet",
     storage_options={"key": AWS_ACCESS_KEY, "secret": AWS_SECRET_KEY}

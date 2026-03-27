@@ -1,9 +1,9 @@
 '''CLIMA
-Bloco abaixo é para buscar os dados brutos que estão em um bucket no s3, aplicar as primeiras transformações necessárias e enviar novamente para uma pasta "silver" no mesmo bucket. Transformações aplicadas:
-
-os dados estavam de hora em hora, é necessário criar o resumo diário;
-valores máximos, mínimos e médios de acordo com o indicador;
-drop de duas colunas 100% nulas;'''
+Bloco abaixo é para buscar os dados brutos que estão em um bucket no s3, aplicar as primeiras transformações necessárias e enviar novamente para uma pasta "silver" no mesmo bucket.
+Transformações aplicadas:
+- Os dados estavam de hora em hora, é necessário criar o resumo diário;
+- Valores máximos, mínimos e médios de acordo com o indicador;
+- Drop de duas colunas 100% nulas;'''
 
 import pandas as pd
 import pyspark.sql.functions as F
