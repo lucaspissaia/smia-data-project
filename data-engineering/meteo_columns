@@ -1,0 +1,40 @@
+import pandas as pd
+import os
+
+def analisar_clima(zona: str):
+    file_path = f"raw\clima_backfill_full_openmeteo.parquet"
+    
+    if not os.path.exists(file_path):
+        print(f"❌ Arquivo não encontrado: {file_path}")
+        return
+
+    try:
+        df_clima = pd.read_parquet(file_path)
+        
+        # 1. Metadados básicos
+        colunas = df_clima.columns.tolist()
+        print(f"🌤️ === AMOSTRA COMPLETA: CLIMA (OPEN-METEO - ZONA {zona.upper()}) ===")
+        print(f"Total de Registros Horários (Linhas): {df_clima.shape[0]}")
+        print(f"Total de Colunas: {len(colunas)}\n")
+        
+        # 2. Lista todas as colunas
+        print("📋 Lista de variáveis climáticas extraídas:")
+        print(colunas)
+        print("\n" + "="*80 + "\n")
+        
+        # 3. Exibe os dados lado a lado
+        pd.set_option('display.max_columns', None)
+        pd.set_option('display.width', 1000)
+        
+        print("🔍 Primeiras 10 horas de registro climático:")
+        print(df_clima.head(10))
+        
+        pd.reset_option('display.max_columns')
+        pd.reset_option('display.width')
+
+    except Exception as e:
+        print(f"Erro ao ler os dados de Clima: {e}")
+
+if __name__ == "__main__":
+    # Coloque aqui a zona que você quer olhar, ou ajuste o arquivo na linha 7
+    analisar_clima("centro")

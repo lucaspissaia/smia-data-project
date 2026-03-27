@@ -30,9 +30,13 @@ Responsável por orquestrar a coleta diária e automatizada de dados brutos.
 
 ### 2. 📊 Analytics Engineering (Modelagem e DW)
 Transformação dos dados brutos em um modelo dimensional otimizado para análises e machine learning.
-- **Ferramentas:** Databricks, PySpark, SQL.
-- **Camadas:** Silver (Limpeza e Padronização) e Gold (Tabelas Fato e Dimensão) -> A depender da modelagem de dados e diagrama de entidades.
+- **Fonte adicional:** Descrição CNES.
+- **Ferramentas:** Databricks, PySpark, SQL, dbt.   
+- **Camadas:** Silver (Limpeza e Padronização) e Gold (Tabelas Fato e Dimensão).
 - 📁 [Acesse os modelos do dbt](./analytics-engineering/)
+
+![Data schema](./docs/SMIA-Data-schema.png)
+
 
 ### 3. 🧠 Data Science & Analytics (Predição e Consumo)
 Geração de insights de negócio e modelagem preditiva de surtos.
@@ -66,4 +70,5 @@ Há uma mudança clara de arquitetura. Mesmo o projeto inicialmente tenso sido p
 Com uma trajetória profissional focada em eficiência, incluindo a experiência atuando como Data & Lean Specialist (Data & Analytics engineer com um adicional de projetos de produtividade) na PepsiCo em Portugal, meu objetivo é sempre garantir que os dados não sejam apenas números em um banco, mas sim engrenagens que geram resultados concretos e otimização na tomada de decisão de ponta a ponta.
 
 🔗 [Conecte-se comigo no LinkedIn]
+
 https://www.linkedin.com/in/lucas-huber-pissaia/
