@@ -17,7 +17,7 @@ def upload_to_s3(local_file: str, bucket_name: str, s3_file_name: str):
         aws_access_key_id=AWS_ACCESS_KEY,
         aws_secret_access_key=AWS_SECRET_KEY
     )
-    print(f" -> Subindo para o S3: s3://{bucket_name}/{s3_file_name}")
+    print(f" -> Subindo para o S3: s3://{bucket_name}/bronze/{s3_file_name}")
     try:
         s3.upload_file(local_file, bucket_name, s3_file_name)
         print("   ✅ Upload concluído!")

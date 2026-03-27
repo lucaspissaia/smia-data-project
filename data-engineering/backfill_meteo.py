@@ -27,7 +27,7 @@ def upload_to_s3(local_file: str, bucket_name: str, s3_file_name: str):
         aws_access_key_id=AWS_ACCESS_KEY,
         aws_secret_access_key=AWS_SECRET_KEY
     )
-    print(f"   -> Subindo para S3: s3://{bucket_name}/{s3_file_name}")
+    print(f"   -> Subindo para S3: s3://{bucket_name}/bronze/{s3_file_name}")
     try:
         s3.upload_file(local_file, bucket_name, s3_file_name)
         print("      ✅ Upload concluído!")
@@ -49,7 +49,7 @@ def fetch_openmeteo_historical_zone(lat: float, lon: float, start_year: int, end
     for year in range(start_year, end_year + 1):
         start_date = f"{year}-01-01"
         # Ajuste para fechar em Fev/2026 se for o ano atual
-        end_date = f"{year}-12-31" if year < 2026 else "2026-02-28"
+        end_date = f"{year}-12-31" if year < 2026 else "2026-03-26"
         
         print(f"   -> Extraindo {year} para Zona {nome_zona}...")
         
